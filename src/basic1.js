@@ -43,6 +43,14 @@ console.log(message2);
 // 分割代入を使った書き方
 const animal = ["MacBook", "IT company"];
 
-const [usePc, workingCompany] = animal; //この変数に上のanumalの値が入ってくる。
+const [usePc, workingCompany] = animal; //この変数に上のanimalの値が順番に入ってくる。
 const message3 = `私の使っているPCは${usePc}です。勤務先は${workingCompany}です。`;
 console.log(message3);
+
+//デフォルト値、初期値
+// この書き方だと「こんにちは!undefinedさん！」と出力されてしまう。
+const sayHello = (name) => console.log(`こんにちは!${name}さん！`);
+sayHello();
+// 引数の部分に = '文字列'を入れる事で初期値を設定することができる。
+const sayHello2 = (name = "ゲスト") => console.log(`こんにちは!${name}さん！`);
+sayHello2();
