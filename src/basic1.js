@@ -54,3 +54,34 @@ sayHello();
 // 引数の部分に = '文字列'を入れる事で初期値を設定することができる。
 const sayHello2 = (name = "ゲスト") => console.log(`こんにちは!${name}さん！`);
 sayHello2();
+
+// スプレッド構文 ... , 配列の展開
+const arr1 = [1, 2];
+console.log(arr1); //結果は[1,2]
+console.log(...arr1); // スプレッド構文。結果は1 2 配列の中身を取り出してくれる。
+
+//例その2
+const sumFunc = (num1, num2) => console.log(num1 + num2);
+sumFunc(arr1[0], arr1[1]);
+sumFunc(...arr1); //上のコードと同じ結果になる。
+
+//配列をまとめる
+const arr2 = [1, 2, 3, 4, 5];
+const [num1, num2, ...arr3] = arr2;
+console.log(num1);
+console.log(num2);
+console.log(arr3); //結果は[3, 4, 5]
+
+// 配列のコピー、結合
+const arr4 = [10, 20];
+const arr5 = [30, 40];
+//コピー
+const arr6 = [...arr4];
+console.log(arr6); // 結果 [10, 20]
+//以下のやり方だと参照値も引き継がれてしまうので、予期せぬ挙動をしてしまう事がある。
+//この後の処理でarr6の値を書き換えるとarr4の本体の値も変わってしまう。
+// const arr6 = arr4;
+
+// 結合
+const arr7 = [...arr4, ...arr5];
+console.log(arr7); //結果[10, 20, 30, 40]
