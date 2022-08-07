@@ -1,5 +1,4 @@
 // テンプレート文字列
-
 const name = "名無しさん";
 const age = "18";
 
@@ -41,9 +40,9 @@ const myProfile = ["太郎", "70"];
 const message2 = `名前は${myProfile[0]}です。年齢は${myProfile[1]}歳です。`;
 console.log(message2);
 // 分割代入を使った書き方
-const animal = ["MacBook", "IT company"];
+const data = ["MacBook", "IT company"];
 
-const [usePc, workingCompany] = animal; //この変数に上のanimalの値が順番に入ってくる。
+const [usePc, workingCompany] = data; //この変数に上のanimalの値が順番に入ってくる。
 const message3 = `私の使っているPCは${usePc}です。勤務先は${workingCompany}です。`;
 console.log(message3);
 
@@ -85,3 +84,45 @@ console.log(arr6); // 結果 [10, 20]
 // 結合
 const arr7 = [...arr4, ...arr5];
 console.log(arr7); //結果[10, 20, 30, 40]
+
+//mapがfilterを使った配列の処理。mapやfilterはfor文のようなもの
+//従来のfor文の書き方
+const nameArr = ["佐藤", "鈴木", "田中"];
+for (let index = 0; index < nameArr.length; index++) {
+  console.log(nameArr[index]); //結果:佐藤　鈴木　田中//index番号を出したい時に使う
+}
+
+//map
+const nameArr2 = nameArr.map((name) => {
+  return name;
+});
+console.log(nameArr2); //結果:["佐藤", "鈴木", "田中"]
+
+nameArr.map((name) => console.log(name)); //結果:佐藤　鈴木　田中
+
+//filter: return文に条件を設定して、合致したもののみを取り出す。
+const numArr = [1, 2, 3, 4, 5];
+const newNumArr = numArr.filter((num) => {
+  return num % 2 === 1;
+});
+console.log(newNumArr);
+
+//応用：ループでindex番号を表示したい場合
+const animalArr = ["犬", "猫", "猿"];
+for (let index = 0; index < animalArr.length; index++) {
+  console.log(`${index + 1}番目は${animalArr[index]}です。`); //${index}をつける
+}
+//mapの場合
+animalArr.map((animal, index) =>
+  console.log(`${index + 1}番目は${animal}です。`)
+); //第二引数をindexを入れる
+
+//実践的な書き方
+const newNameArr1 = nameArr.map((name) => {
+  if (name === "佐藤") {
+    return name;
+  } else {
+    return `${name}さん`;
+  }
+});
+console.log(newNameArr1); //結果:["佐藤", "鈴木さん", "田中さん"]
