@@ -126,3 +126,17 @@ const newNameArr1 = nameArr.map((name) => {
   }
 });
 console.log(newNameArr1); //結果:["佐藤", "鈴木さん", "田中さん"]
+
+// 三項演算子
+const num1300 = 1300;
+console.log(num1300.toLocaleString());
+
+const formattedNum =
+  typeof num1300 === "number" ? "数字だよー" : "それ以外だよー";
+console.log(formattedNum);
+// 三項演算子をreturnに入れる
+const checkSum = (num1, num2) => {
+  return num1 + num2 > 100 ? "100を超えている" : "許容範囲内です";
+};
+console.log(checkSum(10, 80)); // 結果:許容範囲内です
+console.log(checkSum(90, 80)); // 結果:100を超えている
